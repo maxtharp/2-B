@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS destinations;
+
+CREATE TABLE destinations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name TEXT NOT NULL,
+    estimated_cost REAL NOT NULL,
+    notes TEXT NOT NULL
+);
+
+

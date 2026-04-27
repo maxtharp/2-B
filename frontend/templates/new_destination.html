@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-3">Add A New Destination</h2>
+
+    {% if error_message %}
+    <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form method="POST" class="row g-3">
+        <div class="col-12">
+            <label for="dest_name" class="form-label">Destination Name</label>
+            <input type="text" maxlength="20" class="form-control" id="dest_name" name="dest_name" value="{{ old_values.dest_name if old_values else '' }}" required>
+        </div>
+        <div class="col-12">
+            <label for="estimated_cost" class="form-label">Estimated Cost (USD)</label>
+            <input type="number" min="1" max="99999.99" step="0.01" class="form-control" id="estimated_cost" name="estimated_cost" value="{{ old_values.estimated_cost if old_values else '' }}" required>
+        </div>
+        <div class="col-12">
+            <label for="notes" class="form-label">Notes</label>
+            <input type="text" maxlength="20" class="form-control" id="notes" name="notes" value="{{ old_values.notes if old_values else '' }}" required>
+        </div>
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/home" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </form>
+{% endblock %}
+
